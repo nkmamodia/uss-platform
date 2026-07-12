@@ -16,16 +16,18 @@
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "#0d9488", marginBottom: 10 }}>Our Process</div>
             <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(26px, 3.5vw, 40px)", color: "#111827", marginBottom: 16 }}>From Call to Clear — Simple 4-Step Process</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr auto 1fr auto 1fr", alignItems: "flex-start", gap: 0 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr auto 1fr auto 1fr", alignItems: "flex-start" }}>
             {steps.map((step, index) => (
-              <>
-                <div key={step.num} style={{ textAlign: "center", padding: "0 12px" }}>
+              <div key={`step-wrapper-${step.num}`} style={{ display: "contents" }}>
+                <div style={{ textAlign: "center", padding: "0 12px" }}>
                   <div style={{ width: 64, height: 64, borderRadius: "50%", background: "white", border: "2px solid #0d9488", color: "#0d9488", fontSize: 22, fontWeight: 700, fontFamily: "var(--font-display)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px", boxShadow: "0 4px 16px rgba(13,148,136,0.15)" }}>{step.num}</div>
                   <h4 style={{ fontSize: 15, fontWeight: 600, color: "#111827", marginBottom: 8 }}>{step.title}</h4>
                   <p style={{ fontSize: 13, color: "#6b7280", lineHeight: 1.6 }}>{step.desc}</p>
                 </div>
-                {index < steps.length - 1 && <div key={`arrow-${index}`} style={{ display: "flex", alignItems: "flex-start", paddingTop: 20, color: "#0d9488", fontSize: 22 }}>→</div>}
-              </>
+                {index < steps.length - 1 && (
+                  <div style={{ display: "flex", alignItems: "flex-start", paddingTop: 20, color: "#0d9488", fontSize: 22 }}>→</div>
+                )}
+              </div>
             ))}
           </div>
         </div>
